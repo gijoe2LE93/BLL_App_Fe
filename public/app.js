@@ -1,7 +1,7 @@
 console.log("BLL APP.js");
 
 var app = angular.module('bll', []);
-
+this.url = 'https://bll-app-be.herokuapp.com/' || 'http://localhost:3000';
 
 
 
