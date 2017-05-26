@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/gijoe2LE93/BLL_App_Fe/issues"
   },
-  "homepage": "https://github.com/gijoe2LE93/BLL_App_Fe#readme"
+  "homepage": "https://github.com/gijoe2LE93/BLL_App_Fe#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }

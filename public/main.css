@@ -1,0 +1,13 @@
+body {
+    background: gray;
+}
+
+.img{
+    height: 50px;
+}
+
+#pic{
+    height: 500px;
+    display: inline-flex;
+    background-color: purple;
+}
