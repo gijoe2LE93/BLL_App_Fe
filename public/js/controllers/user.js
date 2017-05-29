@@ -1,5 +1,5 @@
 console.log("BLL user.js");
-var app = angular.module('bll_app', []);
+var app = angular.module('bllapp', []);
 
 this.url = 'http://localhost:3000' || 'https://bll-app-be.herokuapp.com/';
 
@@ -14,19 +14,19 @@ app.controller('mainController', ['$http', function($http) {
     //           USER CREATE
     //========================================
 
-    // this.createUser = function() {
-    //     console.log("User Create click");
-    //     console.log("User Form Data: ", this.formdata);
-    //     $http({
-    //         method: 'POST',
-    //         url:    this.url  + '/users',
-    //         data:   this.formdata,
-    //     }).then(function(result){
-    //     console.log('Data from server: ', result);
-    //     this.formdata = {};
-    //     this.users.unshift(result.data);
-    //     }.bind(this));
-    // };
+    this.createUser = function(data) {
+        console.log("User Create click");
+        console.log("User Form Data: ", this.formdata);
+        $http({
+            method: 'POST',
+            url:    this.url  + '/users',
+            data:   this.formdata,
+        }).then(function(result){
+        console.log('Data from server: ', result);
+        this.formdata = {};
+        this.users.unshift(result.data);
+        }.bind(this));
+    };
 
     //========================================
     //           USER DELETE
