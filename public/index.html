@@ -3,14 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>BLL App</title>
+    <!-- link to js file -->
+    <script type="text/javascript" src="js/controllers/user.js">
+    </script>
 
     <!-- angular CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
     </script>
 
-    <!-- link to js file -->
-    <script type="text/javascript" src="js/controllers/user.js">
-    </script>
+
 
     <!-- link to stylesheet -->
     <link rel="stylesheet" href="/css/main.css">
@@ -33,7 +34,7 @@
             <div class="title">
 
                 <h1>Beta Lambda Lambda Chapter</h1>
-                <!-- {{ctrl.message}} -->
+                {{ctrl.message}}
                 <!-- {{user.name}} -->
 
             </div>
@@ -41,22 +42,40 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <!-- <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li> -->
                 <li><a href="#">BLL Chapter History</a></li>
                 <li><a href="#">Executive Counsel</a></li>
                 <li><a href="#">Mandated Programs</a></li>
                 <li><a href="#">Chapter Events</a></li>
             </ul>
-            <div ng-include="'partials/usershow.html'">
+            <!-- <div ng-include="'partials/usershow.html'">
             </div>
-        
+            <div ng-include="'partials/eventshow.html'">
+            </div> -->
+            <div class="row">
+                <div ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
+                    <small>{{ user.name }}</small><br>
+                    <small>{{ user.email }}</small><br>
+                    <small>{{ user.phone }}</small><br>
+                    <small>{{ user.office }}</small><br>
+                    <small>{{ user.event_pos}}</small>
+                </div>
+                <div class="col-xs-6 col-md-4">
 
-            <!-- Columns are always 50% wide, on mobile and desktop -->
-
-
-            <div class="">
-
+                </div>
+                <div class="col-xs-6 col-md-4"></div>
+                <div class="col-xs-6 col-md-4"></div>
             </div>
-        </div>
+
+
+            <!-- <div class="form">
+                <form ng-submit="ctrl.createUser()" class="form">
+                    <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
+                    <input type="text" ng-model="ctrl.formdata.phone" placeholder="phone"/>
+                    <input type="text" ng-model="ctrl.formdata.office" placeholder="office"/>
+                    <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
+                    <input type="submit" class="submit" value="create user">
+                </form>
+            </div>
+        </div> -->
 </body>
 </html>
