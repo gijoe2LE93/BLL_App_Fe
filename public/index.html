@@ -40,11 +40,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="#">BLL Chapter History</a></li>
-                <li><a href="#">Executive Counsel</a></li>
+                <li><a href="#" ng-click = "ctrl.getUsers()">Members</a></li>
                 <li><a href="#">Mandated Programs</a></li>
                 <li><a href="#">Chapter Events</a></li>
             </ul>
-            <div ng-include="'partials/usershow.html'">
+            <div ng-include="'partials/usershow.html'" >
             </div>
             <!-- <div ng-include="'partials/eventshow.html'">
             </div>  -->
@@ -56,13 +56,16 @@
 
 
             <div class="form">
-                <form ng-submit="ctrl.createUser(data)" class="form">
+                <form ng-submit="ctrl.createUser()" class="form">
                     <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
+                    <input type="text" ng-model="ctrl.formdata.email" placeholder="email"/>
                     <input type="text" ng-model="ctrl.formdata.phone" placeholder="phone"/>
                     <input type="text" ng-model="ctrl.formdata.office" placeholder="office"/>
                     <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
                     <input type="submit" class="submit" value="create user">
+
                 </form>
+                <button class="delete-btn" ng-click = 'ctrl.deleteUser(id)'>Delete User</button>
             </div>
         </div>
 </body>
