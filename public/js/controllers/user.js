@@ -2,16 +2,27 @@ console.log("BLL user.js");
 var app = angular.module('bllapp', []);
 
 
-
-
-
 app.controller('mainController', ['$http', function($http) {
-    this.url = 'http://localhost:3000' || 'https://bll-app-be.herokuapp.com/';
+    this.url =  'https://bll-app-fe.herokuapp.com/' || 'http://localhost:3000';
     this.message = "controller works";
     this.users = [];
     this.formdata = {};
 
+    //========================================
+    //           USER SHOW
+    //========================================
 
+    this.showUser = function (id) {
+        console.log("showing user...");
+        $http({
+            method: 'GET',
+            url: this.url + '/users/:id',
+            }).then(function(response) {
+                console.log(response);
+                this.users = response.data;
+                console.log(this.users);
+            }.bind(this));
+    };
     //========================================
     //           USER CREATE
     //========================================
@@ -26,7 +37,6 @@ app.controller('mainController', ['$http', function($http) {
             data:   this.formdata,
         }).then(function (result) {
         console.log('Data from server: ', result);
-        // this.users.unshift(result.data);
         this.formdata = {};
         }.bind(this));
     };  //end create user
@@ -35,16 +45,16 @@ app.controller('mainController', ['$http', function($http) {
     //           USER DELETE
     //========================================
 
-    // this.deleteUser = function() {
-    //     console.log("deleting...");
-    //     $http({
-    //         method: 'DELETE',
-    //         url:    this.url + '/users/:id',
-    //     }).then(function(response) {
-    //         this.user = response.data;
-    //         this.createUser();
-    //     }.bind(this));
-    // };
+    this.deleteUser = function() {
+        console.log("deleting...");
+        $http({
+            method: 'DELETE',
+            url:    this.url + '/users/:id',
+        }).then(function(response) {
+            this.user = response.data;
+            this.createUser();
+        }.bind(this));
+    };
 
     //========================================
     //           USER UPDATE
@@ -54,21 +64,7 @@ app.controller('mainController', ['$http', function($http) {
     //     console.log("update user...");
     // };
     //
-    //========================================
-    //           USER SHOW
-    //========================================
 
-    this.showUser = function () {
-        console.log("showing user...");
-        $http({
-            method: 'GET',
-            url: this.url + '/users/:id',
-            }).then(function(response) {
-                console.log(response);
-                this.users = response.data;
-                console.log(this.users);
-            }.bind(this));
-    };
 
     //========================================
     //            USER INDEX
@@ -78,14 +74,12 @@ app.controller('mainController', ['$http', function($http) {
         $http({
             method: 'GET',
             url: 'http://localhost:3000/users',
+            // url: this.url + '/users',
             }).then(function(response) {
                 console.log(response);
                 this.users = response.data;
                 console.log(this.users);
             }.bind(this));
-
-
-
 
 
 

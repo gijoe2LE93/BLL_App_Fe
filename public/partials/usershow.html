@@ -1,14 +1,25 @@
-<div class="row">
-    <div ng-click = "ctrl.showUser()" ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
-        <small>{{ user.name }}</small><br>
-        <small>{{ user.email }}</small><br>
-        <small>{{ user.phone }}</small><br>
-        <small>{{ user.office }}</small><br>
-        <small>{{ user.event_pos}}</small>
-    </div>
-    <div class="col-xs-6 col-md-4">
+<div class="row" >
 
+    <div ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
+        <ul ng-click = 'ctrl.showUser(id)'>
+            <li>Name  {{ user.name }} </li><br>
+            <li>Email  {{ user.email }} </li><br>
+            <li>Phone  {{ user.phone }} </li><br>
+            <li>Office  {{ user.office }} </li><br>
+            <li>Event  {{ user.event_pos }} </li>
+        </ul>
     </div>
-    <div class="col-xs-6 col-md-4"></div>
-    <div class="col-xs-6 col-md-4"></div>
+    </div>
+        <div class="form">
+            <form ng-submit="ctrl.createUser()" class="form">
+                <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
+                <input type="text" ng-model="ctrl.formdata.email" placeholder="email"/>
+                <input type="text" ng-model="ctrl.formdata.phone" placeholder="phone"/>
+                <input type="text" ng-model="ctrl.formdata.office" placeholder="office"/>
+                <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
+                <input type="submit" class="submit" value="create user">
+            </form>
+            <button class="delete-btn" ng-click = 'ctrl.deleteUser(id)'>Delete User</button>
+        </div>
+    </div>
 </div>
