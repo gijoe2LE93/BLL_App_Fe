@@ -34,20 +34,19 @@
             <div class="title">
 
                 <h1>Beta Lambda Lambda Chapter</h1>
-                <!-- {{ctrl.message}} -->
             </div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="#">BLL Chapter History</a></li>
-                <li><a href="#" >Members</a></li>
+                <li><a href="#/usershow.html" >Members</a></li>
                 <li><a href="#">Mandated Programs</a></li>
                 <li><a href="#">Chapter Events</a></li>
             </ul>
         </div>
-        <div ng-include="'partials/usershow.html'">
-        </div>
-        <div ng-include="'partials/eventshow.html'">
 
+        <!-- Partials -->
+        <div ng-include="'partials/usershow.html'"></div>
+        <div ng-include="'partials/eventshow.html'"></div>
 </body>
 </html>

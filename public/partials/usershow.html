@@ -1,8 +1,8 @@
-<div class="row" >
+<div class="row" ng-hide="ctrl.hideUsers">
 
     <div ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
-        <ul ng-click = 'ctrl.showUser(id)'>
-            <li>Name  {{ user.name }} </li><br>
+        <ul ng-click = 'ctrl.showUser(user.id)'>
+            <li >Name  {{ user.name }} </li><br>
             <li>Email  {{ user.email }} </li><br>
             <li>Phone  {{ user.phone }} </li><br>
             <li>Office  {{ user.office }} </li><br>
@@ -19,7 +19,7 @@
                 <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
                 <input type="submit" class="submit" value="create user">
             </form>
-            <button class="delete-btn" ng-click = 'ctrl.deleteUser(id)'>Delete User</button>
+            <button class="delete-btn" ng-click = 'ctrl.deleteUser(User.id)'>Delete User</button>
         </div>
     </div>
 </div>
