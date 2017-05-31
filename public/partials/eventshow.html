@@ -1,12 +1,10 @@
 <div class="row">
     <h1>Event show</h1>
-    {{this.message}}
+
     <div ng-repeat = "event in ctrl.events" class="col-xs-6 col-md-4">
-        <h1>Events</h1>
-        <small>{{ event.name }}</small><br>
-        <small>{{ event.email }}</small><br>
-        <small>{{ event.phone }}</small><br>
-        <small>{{ event.office }}</small><br>
-        <small>{{ event.event_pos}}</small><br>
+        <small>{{ event.title }}</small><br>
+        <small>{{ event.price }}</small><br>
+        <small>{{ event.date }}</small><br>
+        <small>{{ event.location }}</small><br>
     </div>
 </div>

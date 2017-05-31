@@ -59,13 +59,20 @@ app.controller('mainController', ['$http', function($http) {
     };
 
     //========================================
-    //           USER UPDATE
+    //           USER Edit
     //========================================
 
-    // this.updateUser = function () {
-    //     console.log("update user...");
-    // };
-    //
+    this.editUser = function (id) {
+        // console.log("edit user...");
+        console.log(id);
+        $http({
+            method: 'PUT',
+            url: this.url + '/users/' + id,
+        }).then(function(response) {
+            this.user = response.data;
+        }.bind(this));
+    };
+
 
 
     //========================================
@@ -85,4 +92,24 @@ app.controller('mainController', ['$http', function($http) {
             }.bind(this));
 
     };
+
+
+    //========================================
+    //            EVENT CONTROLLER
+    //========================================
+
+    //========================================
+    //             EVENT INDEX
+    //========================================
+    $http({
+        method: 'GET',
+        url: 'http://localhost:3000/events',
+        }).then(function(response) {
+            console.log(response);
+            this.events = response.data;
+            console.log(this.events);
+        }.bind(this));
+
+
+
 }]);

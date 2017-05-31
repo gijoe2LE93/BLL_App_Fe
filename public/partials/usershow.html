@@ -6,7 +6,7 @@
         </ul>
     </div>
             <section>
-                <section data-toggle="modal" data-target="#myModal">
+                <section>
                     <div ng-repeat = "specificIndividual in ctrl.specificUser">
                         <h1>User</h1>
                         <p>{{specificIndividual.name}}</p>
@@ -15,6 +15,7 @@
                         <p>{{specificIndividual.office}}</p> {{specificIndivicual.email}}
                         <p>{{specificIndividual.event_pos}}</p>
                         <button class="delete-btn" ng-click = 'ctrl.deleteUser(specificIndividual.id)'>Delete User</button>
+                        <button class="btn" ng-click = 'ctrl.editUser(ctrl.specificIndividual.id)'>Edit User</button>
                     </div>
                 </section>
             </section>

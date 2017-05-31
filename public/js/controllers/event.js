@@ -9,9 +9,9 @@ app.controller('eventController', ['$http', function($http) {
     this.message = "controller works";
     this.events = [];
 
-    //========================================
+//========================================
 //     //            EVENT INDEX
-//     //========================================
+////========================================
     $http({
         method: 'GET',
         url: 'http://localhost:3000/events',
