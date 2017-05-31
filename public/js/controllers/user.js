@@ -1,16 +1,12 @@
 console.log("BLL user.js");
 var app = angular.module('bllapp', []);
 
-
 app.controller('mainController', ['$http', function($http) {
     // this.url =  'https://bll-app-fe.herokuapp.com/' || 'http://localhost:3000';
     this.url = 'http://localhost:3000';
     this.message = "controller works";
     this.users = [];
     this.formdata = {};
-    this.isActive = true;
-    this.hideUsers = false;
-    this.specificUser = [];
 
     //========================================
     //           USER SHOW
@@ -22,11 +18,10 @@ app.controller('mainController', ['$http', function($http) {
         $http({
             method: 'GET',
             url: this.url + '/users/' + id,
-            // templateUrl: '/usershow.html'
             }).then(function(response) {
                 console.log(response);
                 this.specificUser = response.data;
-                console.log(this.specificUser);
+                console.log(this.users);
             }.bind(this));
     };
     //========================================
@@ -54,12 +49,11 @@ app.controller('mainController', ['$http', function($http) {
     this.deleteUser = function(id) {
         console.log("deleting...");
         console.log(id);
-        this.specificUser = id;
         $http({
             method: 'DELETE',
             url:    this.url + '/users/' + id,
         }).then(function(response) {
-            this.specificUser = response.data;
+            this.user = response.data;
             // this.createUser();
         }.bind(this));
     };
@@ -78,6 +72,7 @@ app.controller('mainController', ['$http', function($http) {
     //            USER INDEX
     //========================================
 
+    this.getUsers = function(){
         console.log("getting users...");
         $http({
             method: 'GET',
@@ -89,6 +84,5 @@ app.controller('mainController', ['$http', function($http) {
                 console.log(this.users);
             }.bind(this));
 
-
-
+    };
 }]);
