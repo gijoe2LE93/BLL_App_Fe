@@ -14,20 +14,22 @@
                     <p>{{ specificEvent.price }}</p><br>
                     <p>{{ specificEvent.date }}</p><br>
                     <p>{{ specificEvent.location }}</p><br>
+                    <p>{{ specificEvent.user_id }}</p><br>
                     <button class="delete-btn" ng-click = 'ctrl.deleteEvent(specificEvent.id)'>Delete Event</button>
-                    <button class="btn" ng-click = 'ctrl.editEvent(ctrl.specificEvent.id)'>Edit Event</button>
+                    <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Edit Event</button>
                 </div>
             </section>
         </section>
 </div>
 
-    <!-- <div class="form">
+    <div class="form">
         <form ng-submit="ctrl.createEvent()" class="form">
             <input type="text" ng-model="ctrl.eventdata.title" placeholder="title"/>
             <input type="text" ng-model="ctrl.eventdata.price" placeholder="price"/>
             <input type="text" ng-model="ctrl.eventdata.date" placeholder="date"/>
             <input type="text" ng-model="ctrl.eventdata.location" placeholder="location"/>
+            <input type="text" ng-model="ctrl.eventdata.user_id" placeholder="user_id"/>
             <input type="submit" class="submit" value="create event">
         </form>
         <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.id)'>Delete Event</button>
-    </div> -->
+    </div>

@@ -1,26 +1,29 @@
 <div class="row" >
 
     <div ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
-        <ul  ng-click = 'ctrl.showUser(user.id)'>
-            <li>{{ user.name }} </li><br>
-        </ul>
+        <div  ng-click = 'ctrl.showUser(user.id)'>
+            <h2>{{ user.name }} </h2><br>
+        </div>
     </div>
             <section>
                 <section>
                     <div ng-repeat = "specificIndividual in ctrl.specificUser">
-                        <h1>User</h1>
+                        <!-- <h1>User</h1> -->
                         <p>{{specificIndividual.name}}</p>
-                        <p>{{specificIndividual.email}}</p> {{specificIndivicual.email}}
-                        <p>{{specificIndividual.phone}}</p> {{specificIndivicual.email}}
-                        <p>{{specificIndividual.office}}</p> {{specificIndivicual.email}}
+                        <p>{{specificIndividual.email}}</p>
+                        <p>{{specificIndividual.phone}}</p>
+                        <p>{{specificIndividual.office}}</p>
                         <p>{{specificIndividual.event_pos}}</p>
                         <button class="delete-btn" ng-click = 'ctrl.deleteUser(specificIndividual.id)'>Delete User</button>
-                        <button class="btn" ng-click = 'ctrl.editUser(ctrl.specificIndividual.id)'>Edit User</button>
+                        <button class="delete-btn" ng-click = 'ctrl.editUser(specificIndividual.id)'>Edit User</button>
                     </div>
+
+                    <!-- <button class="btn" ng-click = 'ctrl.editUser(ctrl.specificIndividual.id)'>Edit User</button> -->
                 </section>
             </section>
         </div>
-        <!-- <div class="form">
+
+        <div class="form">
             <form ng-submit="ctrl.createUser()" class="form">
                 <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
                 <input type="text" ng-model="ctrl.formdata.email" placeholder="email"/>
@@ -29,7 +32,7 @@
                 <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
                 <input type="submit" class="submit" value="create user">
             </form>
-            <button class="delete-btn" ng-click = 'ctrl.deleteUser(ctrl.specificUser.id)'>Delete User</button>
-        </div> -->
+            <!-- <button class="delete-btn" ng-click = 'ctrl.deleteUser(ctrl.specificUser.id)'>Delete User</button> -->
+        </div>
     </div>
 </div>
