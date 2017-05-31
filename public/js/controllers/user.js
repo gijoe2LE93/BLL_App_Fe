@@ -7,6 +7,7 @@ app.controller('mainController', ['$http', function($http) {
     this.message = "controller works";
     this.users = [];
     this.formdata = {};
+    this.eventdata = {};
 
     //========================================
     //           USER SHOW
@@ -59,7 +60,7 @@ app.controller('mainController', ['$http', function($http) {
     };
 
     //========================================
-    //           USER Edit
+    //           USER EDIT
     //========================================
 
     this.editUser = function (id) {
@@ -97,18 +98,86 @@ app.controller('mainController', ['$http', function($http) {
     //========================================
     //            EVENT CONTROLLER
     //========================================
+    //========================================
+    //             EVENT CREATE
+    //========================================
 
+    // this.createEvent = function(result) {
+    //     console.log("Event Create click");
+    //     console.log("Event Form Data: ", this.eventdata);
+    //     console.log(this.url, "this.url");
+    //     $http({
+    //         method: 'POST',
+    //         url:    this.url  + '/events',
+    //         data:   this.eventdata,
+    //     }).then(function (result) {
+    //     console.log('Data from server: ', result);
+    //     this.eventdata = {};
+    //     }.bind(this));
+    // };  //end create event
+
+    //========================================
+    //             EVENT DELETE
+    //========================================
+
+    this.deleteEvent = function(id) {
+        console.log("deleting...");
+        console.log(id);
+        $http({
+            method: 'DELETE',
+            url:    this.url + '/events/' + id,
+        }).then(function(response) {
+            this.event = response.data;
+        }.bind(this));
+    };
+    //
+    // //========================================
+    // //             EVENT Edit
+    // //========================================
+    //
+    // this.editEvent = function (id) {
+    //     // console.log("edit user...");
+    //     console.log(id);
+    //     $http({
+    //         method: 'PUT',
+    //         url: this.url + '/users/' + id,
+    //     }).then(function(response) {
+    //         this.user = response.data;
+    //     }.bind(this));
+    // };
+
+    //========================================
+    //           EVENT SHOW
+    //========================================
+
+    this.showEvent = function (id) {
+        console.log("showing event...");
+        console.log(id);
+        $http({
+            method: 'GET',
+            url: this.url + '/events/' + id,
+            }).then(function(response) {
+                console.log(response);
+                this.specificEvent = response.data;
+                console.log(this.events);
+            }.bind(this));
+    };
     //========================================
     //             EVENT INDEX
     //========================================
-    $http({
-        method: 'GET',
-        url: 'http://localhost:3000/events',
-        }).then(function(response) {
-            console.log(response);
-            this.events = response.data;
-            console.log(this.events);
-        }.bind(this));
+
+    this.getEvents = function(){
+        console.log("Getting Events");
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/events',
+            }).then(function(response) {
+                console.log(response);
+                this.events = response.data;
+                console.log(this.events);
+            }.bind(this));
+    };
+
 
 
 

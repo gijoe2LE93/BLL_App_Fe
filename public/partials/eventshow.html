@@ -1,10 +1,33 @@
 <div class="row">
-    <h1>Event show</h1>
+    <!-- <h1>Event show</h1> -->
 
     <div ng-repeat = "event in ctrl.events" class="col-xs-6 col-md-4">
-        <small>{{ event.title }}</small><br>
-        <small>{{ event.price }}</small><br>
-        <small>{{ event.date }}</small><br>
-        <small>{{ event.location }}</small><br>
+        <ul ng-click = 'ctrl.showEvent(event.id)'>
+            <li>{{ event.title }}</li><br>
+        </ul>
     </div>
+        <section>
+            <section>
+                <div ng-repeat = "specificEvent in ctrl.specificEvent">
+                    <h1>TESTING</h1>
+                    <p>{{ specificEvent.title }}</p><br>
+                    <p>{{ specificEvent.price }}</p><br>
+                    <p>{{ specificEvent.date }}</p><br>
+                    <p>{{ specificEvent.location }}</p><br>
+                    <button class="delete-btn" ng-click = 'ctrl.deleteEvent(specificEvent.id)'>Delete Event</button>
+                    <button class="btn" ng-click = 'ctrl.editEvent(ctrl.specificEvent.id)'>Edit Event</button>
+                </div>
+            </section>
+        </section>
 </div>
+
+    <!-- <div class="form">
+        <form ng-submit="ctrl.createEvent()" class="form">
+            <input type="text" ng-model="ctrl.eventdata.title" placeholder="title"/>
+            <input type="text" ng-model="ctrl.eventdata.price" placeholder="price"/>
+            <input type="text" ng-model="ctrl.eventdata.date" placeholder="date"/>
+            <input type="text" ng-model="ctrl.eventdata.location" placeholder="location"/>
+            <input type="submit" class="submit" value="create event">
+        </form>
+        <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.id)'>Delete Event</button>
+    </div> -->
