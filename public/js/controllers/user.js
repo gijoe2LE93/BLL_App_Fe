@@ -6,16 +6,16 @@ app.controller('mainController', ['$http', function($http) {
     this.url = 'http://localhost:3000';
     this.message = "controller works";
     this.users = [];
+    this.events = [];
     this.formdata = {};
-    this.eventdata = {};
+    this.userdata = {};
 
     //========================================
     //           USER SHOW
     //========================================
 
     this.showUser = function (id) {
-        console.log("showing user...");
-        console.log(id);
+        console.log("showing user..." + id);
         $http({
             method: 'GET',
             url: this.url + '/users/' + id,
@@ -48,29 +48,31 @@ app.controller('mainController', ['$http', function($http) {
     //========================================
 
     this.deleteUser = function(id) {
-        console.log("deleting...");
-        console.log(id);
+        console.log("deleting..." + id);
         $http({
             method: 'DELETE',
             url:    this.url + '/users/' + id,
         }).then(function(response) {
             this.user = response.data;
-            // this.createUser();
+            return this.users;
         }.bind(this));
+
     };
 
     //========================================
     //           USER EDIT
     //========================================
 
-    this.editUser = function (id) {
-        console.log("edit user...");
-        console.log(id);
+    this.editUser = function () {
+        var id = this.specificUser.user.id;
+        console.log("edit user..." + id);
         $http({
             method: 'PUT',
             url: this.url + '/users/' + id,
+            data: this.edituserdata
         }).then(function(response) {
-            this.user = response.data;
+            // this.edituserdata={};
+            this.getUsers();
         }.bind(this));
     };
 
@@ -114,6 +116,7 @@ app.controller('mainController', ['$http', function($http) {
         console.log('Data from server: ', result);
         this.eventdata = {};
         }.bind(this));
+        this.getUsers();
     };  //end create event
 
     //========================================
@@ -121,28 +124,37 @@ app.controller('mainController', ['$http', function($http) {
     //========================================
 
     this.deleteEvent = function(id) {
-        console.log("deleting...");
-        console.log(id);
+        console.log("deleting..." + id);
+        // this.specificEvent.event.id = id;
         $http({
             method: 'DELETE',
             url:    this.url + '/events/' + id,
+            data: this.editeventdata
         }).then(function(response) {
-            this.event = response.data;
+            console.log(response);
+            this.editformdata={};
+            this.getEvents();
         }.bind(this));
     };
+
 
     //========================================
     //             EVENT EDIT
     //========================================
 
-    this.editEvent = function (id) {
+
+    this.editEvent = function () {
+        var id = this.specificEvent.event.id;
+        console.log(this.specificEvent.event.id);
         console.log("edit event...");
         console.log(id);
         $http({
             method: 'PUT',
             url: this.url + '/events/' + id,
+            data: this.editeventdata
         }).then(function(response) {
-            this.event = response.data;
+            this.editformdata={};
+            this.getEvents();
         }.bind(this));
     };
 
@@ -159,7 +171,7 @@ app.controller('mainController', ['$http', function($http) {
             }).then(function(response) {
                 console.log(response);
                 this.specificEvent = response.data;
-                console.log(this.events);
+                console.log("This is the specificEvent ", this.specificEvent);
             }.bind(this));
     };
     //========================================

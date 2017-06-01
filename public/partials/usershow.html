@@ -1,5 +1,5 @@
 <div class="row" >
-
+<!-- Show Members when Member Link is clicked -->
     <div ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
         <div  ng-click = 'ctrl.showUser(user.id)'>
             <h2>{{ user.name }} </h2><br>
@@ -7,22 +7,33 @@
     </div>
             <section>
                 <section>
-                    <div ng-repeat = "specificIndividual in ctrl.specificUser">
+                    <div>
                         <!-- <h1>User</h1> -->
-                        <p>{{specificIndividual.name}}</p>
-                        <p>{{specificIndividual.email}}</p>
-                        <p>{{specificIndividual.phone}}</p>
-                        <p>{{specificIndividual.office}}</p>
-                        <p>{{specificIndividual.event_pos}}</p>
-                        <button class="delete-btn" ng-click = 'ctrl.deleteUser(specificIndividual.id)'>Delete User</button>
-                        <button class="delete-btn" ng-click = 'ctrl.editUser(specificIndividual.id)'>Edit User</button>
+                        <p>{{ctrl.specificUser.user.name}}</p>
+                        <p>{{ctrl.specificUser.user.email}}</p>
+                        <p>{{ctrl.specificUser.user.phone}}</p>
+                        <p>{{ctrl.specificUser.user.office}}</p>
+                        <p>{{ctrl.specificUser.user.event_pos}}</p>
                     </div>
-
-                    <!-- <button class="btn" ng-click = 'ctrl.editUser(ctrl.specificIndividual.id)'>Edit User</button> -->
                 </section>
             </section>
         </div>
 
+<!-- Edit User Form -->
+<h1>Edit Form</h1>
+        <div class="form">
+            <form ng-submit="ctrl.editUser()" class="form">
+                <input type="text" ng-model="ctrl.edituserdata.name" placeholder="{{ctrl.specificUser.user.name}}"/>
+                <input type="text" ng-model="ctrl.edituserdata.email" placeholder="{{ctrl.specificUser.user.email}}"/>
+                <input type="text" ng-model="ctrl.edituserdata.phone" placeholder="{{ctrl.specificUser.user.phone}}"/>
+                <input type="text" ng-model="ctrl.edituserdata.office" placeholder="{{ctrl.specificUser.user.office}}"/>
+                <input type="text" ng-model="ctrl.edituserdata.event_pos" placeholder="{{ctrl.specificUser.user.event_pos}}"/>
+                <input type="submit" class="submit" value="Edit Member">
+            </form><br>
+            <button class="delete-btn" ng-click = 'ctrl.deleteUser(ctrl.specificUser.user.id)'>Delete User</button>
+        </div>
+
+<!-- Create User Form -->
         <div class="form">
             <form ng-submit="ctrl.createUser()" class="form">
                 <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
@@ -32,7 +43,6 @@
                 <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
                 <input type="submit" class="submit" value="create user">
             </form>
-            <!-- <button class="delete-btn" ng-click = 'ctrl.deleteUser(ctrl.specificUser.id)'>Delete User</button> -->
         </div>
     </div>
 </div>

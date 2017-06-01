@@ -1,35 +1,51 @@
 <div class="row">
-    <!-- <h1>Event show</h1> -->
+    <!-- Show Events when link is clicked -->
 
     <div ng-repeat = "event in ctrl.events" class="col-xs-6 col-md-4">
-        <ul ng-click = 'ctrl.showEvent(event.id)'>
-            <li>{{ event.title }}</li><br>
-        </ul>
+        <div ng-click = 'ctrl.showEvent(event.id)'>
+            <h2>{{ event.title }}</h2><br>
+        </div>
     </div>
+    <section>
         <section>
-            <section>
-                <div ng-repeat = "specificEvent in ctrl.specificEvent">
-                    <h1>TESTING</h1>
-                    <p>{{ specificEvent.title }}</p><br>
-                    <p>{{ specificEvent.price }}</p><br>
-                    <p>{{ specificEvent.date }}</p><br>
-                    <p>{{ specificEvent.location }}</p><br>
-                    <p>{{ specificEvent.user_id }}</p><br>
-                    <button class="delete-btn" ng-click = 'ctrl.deleteEvent(specificEvent.id)'>Delete Event</button>
-                    <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Edit Event</button>
+            <div>
+                <p>{{ctrl.specificEvent.event.title}}</p><br>
+                <p>{{ ctrl.specificEvent.event.price }}</p><br>
+                <p>{{ ctrl.specificEvent.event.date }}</p><br>
+                <p>{{ ctrl.specificEvent.event.location }}</p><br>
+                <p>{{ ctrl.specificEvent.event.user_id }}</p><br>
+            </div>
+
+
+            <!-- Edit Event Form -->
+            <h1>Edit Form</h1>
+            <div class="form-group">
+                <form class="form" ng-submit="ctrl.editEvent()">
+                    <input type="text" ng-model="ctrl.editeventdata.title" placeholder = "{{ctrl.specificEvent.event.title}}"/>
+                    <input type="text" ng-model="ctrl.editeventdata.price" placeholder="{{ctrl.specificEvent.event.price}}"/>
+                    <input type="text" ng-model="ctrl.editeventdata.date" placeholder="date"/>
+                    <input type="text" ng-model="ctrl.editeventdata.event. location" placeholder="location"/>
+                    <input type="text" ng-model="ctrl.editeventdata.user_id" placeholder="user_id"/>
+                    <input type="submit" class="edit-button" value="edit event"><br>
+
+                </form>
+                <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.event.id)'>Delete Event</button>
+
+
+                <!-- Create Event Form -->
+                <h1>Create Form</h1>
+                <div class="form-group">
+                    <form ng-submit="ctrl.createEvent()" class="form">
+                        <input type="text" ng-model="ctrl.eventdata.title" placeholder="title"/>
+                        <input type="text" ng-model="ctrl.eventdata.price" placeholder="price"/>
+                        <input type="text" ng-model="ctrl.eventdata.date" placeholder="date"/>
+                        <input type="text" ng-model="ctrl.eventdata.location" placeholder="location"/>
+                        <input type="text" ng-model="ctrl.eventdata.user_id" placeholder="user_id"/>
+                        <input type="submit" class="submit" value="create event">
+                    </form>
                 </div>
+
+                <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Edit Event</button>
             </section>
         </section>
-</div>
-
-    <div class="form">
-        <form ng-submit="ctrl.createEvent()" class="form">
-            <input type="text" ng-model="ctrl.eventdata.title" placeholder="title"/>
-            <input type="text" ng-model="ctrl.eventdata.price" placeholder="price"/>
-            <input type="text" ng-model="ctrl.eventdata.date" placeholder="date"/>
-            <input type="text" ng-model="ctrl.eventdata.location" placeholder="location"/>
-            <input type="text" ng-model="ctrl.eventdata.user_id" placeholder="user_id"/>
-            <input type="submit" class="submit" value="create event">
-        </form>
-        <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.id)'>Delete Event</button>
     </div>
