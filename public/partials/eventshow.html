@@ -2,50 +2,76 @@
     <!-- Show Events when link is clicked -->
 
     <div ng-repeat = "event in ctrl.events" class="col-xs-6 col-md-4">
-        <div ng-click = 'ctrl.showEvent(event.id)'>
+        <div class = "show bg-info pull-left ng-show" ng-click = 'ctrl.showEvent(event.id)' data-toggle="modal" data-target="#EditModal">
             <h2>{{ event.title }}</h2><br>
         </div>
     </div>
-    <section>
-        <section>
-            <div>
-                <p>{{ctrl.specificEvent.event.title}}</p><br>
-                <p>{{ ctrl.specificEvent.event.price }}</p><br>
-                <p>{{ ctrl.specificEvent.event.date }}</p><br>
-                <p>{{ ctrl.specificEvent.event.location }}</p><br>
-                <p>{{ ctrl.specificEvent.event.user_id }}</p><br>
-            </div>
-
-
-            <!-- Edit Event Form -->
-            <h1>Edit Form</h1>
-            <div class="form-group">
-                <form class="form" ng-submit="ctrl.editEvent()">
-                    <input type="text" ng-model="ctrl.editeventdata.title" placeholder = "{{ctrl.specificEvent.event.title}}"/>
-                    <input type="text" ng-model="ctrl.editeventdata.price" placeholder="{{ctrl.specificEvent.event.price}}"/>
-                    <input type="text" ng-model="ctrl.editeventdata.date" placeholder="date"/>
-                    <input type="text" ng-model="ctrl.editeventdata.event. location" placeholder="location"/>
-                    <input type="text" ng-model="ctrl.editeventdata.user_id" placeholder="user_id"/>
-                    <input type="submit" class="edit-button" value="edit event"><br>
-
-                </form>
-                <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.event.id)'>Delete Event</button>
-
-
-                <!-- Create Event Form -->
-                <h1>Create Form</h1>
-                <div class="form-group">
-                    <form ng-submit="ctrl.createEvent()" class="form">
-                        <input type="text" ng-model="ctrl.eventdata.title" placeholder="title"/>
-                        <input type="text" ng-model="ctrl.eventdata.price" placeholder="price"/>
-                        <input type="text" ng-model="ctrl.eventdata.date" placeholder="date"/>
-                        <input type="text" ng-model="ctrl.eventdata.location" placeholder="location"/>
-                        <input type="text" ng-model="ctrl.eventdata.user_id" placeholder="user_id"/>
-                        <input type="submit" class="submit" value="create event">
-                    </form>
-                </div>
-
-                <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Edit Event</button>
-            </section>
-        </section>
+    <div>
+        <p>{{ctrl.specificEvent.event.title}}</p><br>
+        <p>{{ ctrl.specificEvent.event.price }}</p><br>
+        <p>{{ ctrl.specificEvent.event.date }}</p><br>
+        <p>{{ ctrl.specificEvent.event.location }}</p><br>
+        <p>{{ ctrl.specificEvent.event.user_id }}</p><br>
     </div>
+
+
+    <!-- Edit Event Form Modal-->
+    <div class="modal-hide" id="EditModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="EditModal">&times;</button>
+                    <h4 class="modal-title">Edit Event</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form" ng-submit="ctrl.editEvent()">
+                        <input type="text" ng-model="ctrl.editeventdata.title" placeholder = "{{ctrl.specificEvent.event.title}}"/>
+                        <input type="text" ng-model="ctrl.editeventdata.price" placeholder="{{ctrl.specificEvent.event.price}}"/>
+                        <input type="text" ng-model="ctrl.editeventdata.date" placeholder="date"/>
+                        <input type="text" ng-model="ctrl.editeventdata.event. location" placeholder="location"/>
+                        <input type="text" ng-model="ctrl.editeventdata.user_id" placeholder="user_id"/>
+                    </form>
+                    <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.event.id)'>Delete Event</button>
+                    <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Edit Event</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Event Form -->
+        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#CreateEventModal">Create Modal</button> -->
+
+        <!-- Create Event Form Modal -->
+        <div id="CreateEventModal" class="modal-fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-title">
+                            <h4>Create Event</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form ng-submit="ctrl.createEvent()" class="form">
+                            <input type="text" ng-model="ctrl.eventdata.title" placeholder="title"/>
+                            <input type="text" ng-model="ctrl.eventdata.price" placeholder="price"/>
+                            <input type="text" ng-model="ctrl.eventdata.date" placeholder="date"/>
+                            <input type="text" ng-model="ctrl.eventdata.location" placeholder="location"/>
+                            <input type="text" ng-model="ctrl.eventdata.user_id" placeholder="user_id"/>
+                            <input type="submit" class="submit" value="create event">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+
+        </div>
+</div>
