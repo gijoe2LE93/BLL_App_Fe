@@ -4,7 +4,7 @@ var app = angular.module('bllapp', []);
 app.controller('mainController', ['$http', function($http) {
 // this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
 
-this.url = 'http://localhost:3000'; //|| 'https://bll-app-be.herokuapp.com';
+this.url = 'http://localhost:3000'|| 'https://bll-app-be.herokuapp.com';
 
     this.message = "controller works";
 

@@ -2,51 +2,35 @@
     <!-- Show Members when Member Link is clicked -->
     <div >
         <ul  ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
-            <li ng-click = 'ctrl.showUser(user.id)' ; "showUser = !showUser" data-toggle= "modal" data-target="#EditModal" class="list-group-item active"> {{ user.name }} </li><br>
+            <li ng-click = 'ctrl.showUser(user.id)' data-toggle= "modal" data-target="#EditModal" class="list-group-item active"> {{ user.name }} </li><br>
         </ul>
-        <!-- <section> -->
+        <section>
             <h1>{{ctrl.users.name}}</h1>
-            <!-- <section ng-hide="" class=""> -->
-            <!-- <div class="modal"> -->
-                <div id="EditModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content ">
-                            <div class="modal-header">Member Details
-                                <button type="button" class="close" data-dismiss="modal"&times>x</button>
-                            </div>
-                            <div class="modal-body" ng-click = "showModal = !showModal" class="">
-                                <!-- <h1>User</h1> -->
-                                <h1>{{ctrl.specificUser.user.name}}</h1>
-                                <p>{{ctrl.specificUser.user.email}}</p>
-                                <p>{{ctrl.specificUser.user.phone}}</p>
-                                <p>{{ctrl.specificUser.user.office}}</p>
-                                <p>{{ctrl.specificUser.user.event_pos}}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary btn-sm" ng-click="showModal = !showModal">Edit Member</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
+            <section>
+                <div>
+                    <!-- <h1>User</h1> -->
+                    <h1>{{ctrl.specificUser.user.name}}</h1>
+                    <p>{{ctrl.specificUser.user.email}}</p>
+                    <p>{{ctrl.specificUser.user.phone}}</p>
+                    <p>{{ctrl.specificUser.user.office}}</p>
+                    <p>{{ctrl.specificUser.user.event_pos}}</p>
                 </div>
-            </div>
-
-            <!-- </section>
-        </section> -->
+            </section>
+        </section>
     </div>
 </div>
 <!-- Edit User Form modal-->
 
 <!-- Launch Modal Button -->
-<!-- <div ng-init="showModal=false"> -->
-    <!-- <button class="btn btn-primary btn-sm" ng-click="showModal = !showModal">Edit Member</button> -->
+<div ng-init="showModal=false">
+    <button class="btn btn-primary btn-lg" ng-click="showModal = !showModal">Edit Member</button>
     <div class="modal fade in" aria-hidden = "false" style="display: block" ng-show="showModal" id="EditModal" role="dialog">
         <div class="modal-dialog">
             <!-- Launch Modal Button -->
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" data-dismiss="EditModal">&times;</button>
                     <h4 class="modal-title">Edit Member</h4>
                 </div>
                 <!-- Modal Form -->
@@ -66,20 +50,20 @@
                     <!-- Modal Footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
-                        <!-- End Modal Footer -->
+                        End Modal Foo
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End Edit Modal -->
+
 
 <!-- Create User Form Modal Button-->
 <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#createModal"></button> -->
 
 <!-- Create User Form Modal -->
-<!-- <div id="#createModal" class="modal-fade" role="dialog">
+<div id="#createModal" class="modal-fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -103,4 +87,4 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
