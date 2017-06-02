@@ -2,7 +2,9 @@ console.log("BLL user.js");
 var app = angular.module('bllapp', []);
 
 app.controller('mainController', ['$http', function($http) {
-this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
+// this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
+
+this.url = 'http://localhost:3000'; //|| 'https://bll-app-be.herokuapp.com';
     // if(window.location.origin == "http://localhost:8000") {
     //   this.url = "http://localhost:3000";
     // }
@@ -173,7 +175,7 @@ this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
         console.log(id);
         $http({
             method: 'GET',
-            url: this.url + '/events/' + id,
+            url: 'http://localhost:3000/events/' + id,
             }).then(function(response) {
                 console.log(response);
                 this.specificEvent = response.data;
@@ -197,7 +199,11 @@ this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
             }.bind(this));
     };
 
+    $('#open-signup').on('click', function () {
+          $('#signup-modal').css('display', 'block');
+    });
 
-
-
+  $('.close').on('click', function() {
+  $('#signup-modal').css('display', 'none');
+  });
 }]);

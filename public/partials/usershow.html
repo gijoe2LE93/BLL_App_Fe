@@ -5,9 +5,10 @@
             <li ng-click = 'ctrl.showUser(user.id)' ; "showUser = !showUser" data-toggle= "modal" data-target="#EditModal" class="list-group-item active"> {{ user.name }} </li><br>
         </ul>
         <!-- <section> -->
-            <h1 ng-show="showUser">{{ctrl.users.name}}</h1>
+            <h1>{{ctrl.users.name}}</h1>
             <!-- <section ng-hide="" class=""> -->
-                <div id="test" class="modal-fade" role="dialog">
+            <!-- <div class="modal"> -->
+                <div id="EditModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content ">
                             <div class="modal-header">Member Details
@@ -28,6 +29,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
             <!-- </section>
         </section> -->
     </div>
