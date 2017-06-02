@@ -15,7 +15,7 @@ body {
 
 /*show individual user and event */
 
-.show {
+/*.show {
     /*float: left !important;*/
     border: 2px solid;
     box-shadow: 10px 30px 5px #888888;
@@ -23,4 +23,13 @@ body {
     height: auto;
     width: auto;
     padding: 10px 20px, 30px, 40px;
+}*/
+
+.ng-hide{
+    /*display: block;*/
+}
+
+#test{
+    /*position: static;*/
+    margin-top: 30px;
 }
