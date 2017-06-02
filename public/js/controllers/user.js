@@ -4,9 +4,7 @@ var app = angular.module('bllapp', []);
 app.controller('mainController', ['$http', function($http) {
 // this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
 
-<<<<<<< HEAD
-this.url = 'http://localhost:3000'|| 'https://bll-app-be.herokuapp.com';
-=======
+
 this.url = 'http://localhost:3000'; //|| 'https://bll-app-be.herokuapp.com';
     // if(window.location.origin == "http://localhost:8000") {
     //   this.url = "http://localhost:3000";
@@ -14,7 +12,6 @@ this.url = 'http://localhost:3000'; //|| 'https://bll-app-be.herokuapp.com';
     // else {
     //   this.url = "https://bll-app-fe.herokuapp.com";
     // }
->>>>>>> parent of 54a9145... WTF
 
     this.message = "controller works";
 
