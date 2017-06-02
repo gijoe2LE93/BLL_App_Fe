@@ -2,13 +2,9 @@ console.log("BLL user.js");
 var app = angular.module('bllapp', []);
 
 app.controller('mainController', ['$http', function($http) {
+// this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
 
-    if(window.location.origin == "http://localhost:8000") {
-      this.url = "http://localhost:3000";
-    }
-    else {
-      this.url = "https://bll-app-fe.herokuapp.com";
-    }
+this.url = 'http://localhost:3000'|| 'https://bll-app-be.herokuapp.com';
 
     this.message = "controller works";
 
@@ -93,7 +89,6 @@ app.controller('mainController', ['$http', function($http) {
         console.log("getting users...");
         $http({
             method: 'GET',
-            // url: 'http://localhost:3000/users',
             url: this.url + '/users',
             }).then(function(response) {
                 console.log(response);
@@ -174,7 +169,7 @@ app.controller('mainController', ['$http', function($http) {
         console.log(id);
         $http({
             method: 'GET',
-            url: this.url + '/events/' + id,
+            url: 'http://localhost:3000/events/' + id,
             }).then(function(response) {
                 console.log(response);
                 this.specificEvent = response.data;
@@ -187,9 +182,10 @@ app.controller('mainController', ['$http', function($http) {
 
     this.getEvents = function(){
         console.log("Getting Events");
+        console.log(this.url);
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/events',
+            url: this.url + '/events',
             }).then(function(response) {
                 console.log(response);
                 this.events = response.data;
