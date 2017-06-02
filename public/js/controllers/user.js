@@ -5,12 +5,6 @@ app.controller('mainController', ['$http', function($http) {
 // this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
 
 this.url = 'http://localhost:3000'; //|| 'https://bll-app-be.herokuapp.com';
-    // if(window.location.origin == "http://localhost:8000") {
-    //   this.url = "http://localhost:3000";
-    // }
-    // else {
-    //   this.url = "https://bll-app-fe.herokuapp.com";
-    // }
 
     this.message = "controller works";
 
@@ -199,11 +193,7 @@ this.url = 'http://localhost:3000'; //|| 'https://bll-app-be.herokuapp.com';
             }.bind(this));
     };
 
-    $('#open-signup').on('click', function () {
-          $('#signup-modal').css('display', 'block');
-    });
 
-  $('.close').on('click', function() {
-  $('#signup-modal').css('display', 'none');
-  });
+
+
 }]);
