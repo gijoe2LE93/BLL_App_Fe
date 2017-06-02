@@ -2,7 +2,7 @@ console.log("BLL user.js");
 var app = angular.module('bllapp', []);
 
 app.controller('mainController', ['$http', function($http) {
-this.url = 'https://bll-app-fe.herokuapp.com/'; //|| 'http://localhost:3000';
+this.url = 'https://bll-app-fe.herokuapp.com/' || 'http://localhost:3000';
     // if(window.location.origin == "http://localhost:8000") {
     //   this.url = "http://localhost:3000";
     // }
@@ -187,9 +187,10 @@ this.url = 'https://bll-app-fe.herokuapp.com/'; //|| 'http://localhost:3000';
 
     this.getEvents = function(){
         console.log("Getting Events");
+        console.log(this.url);
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/events',
+            url: this.url + '/events',
             }).then(function(response) {
                 console.log(response);
                 this.events = response.data;
