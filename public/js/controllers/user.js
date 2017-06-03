@@ -88,8 +88,7 @@ this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
     //========================================
 
     this.getUsers = function(){
-        this.formdata = {};
-        this.userdata = {};
+        this.events = [];
         console.log("getting users...");
         $http({
             method: 'GET',
@@ -121,6 +120,7 @@ this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
             data:   this.eventdata,
         }).then(function (result) {
         console.log('Data from server: ', result);
+        this.events.push(this.eventdata)
         this.eventdata = {};
         }.bind(this));
         this.getUsers();
@@ -184,6 +184,7 @@ this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
     //========================================
 
     this.getEvents = function(){
+        this.users = [];
         console.log("Getting Events");
         console.log(this.url);
         $http({
@@ -196,11 +197,4 @@ this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
             }.bind(this));
     };
 
-    $('#open-signup').on('click', function () {
-          $('#signup-modal').css('display', 'block');
-    });
-
-  $('.close').on('click', function() {
-  $('#signup-modal').css('display', 'none');
-  });
 }]);
