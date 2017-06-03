@@ -26,6 +26,7 @@
                         </div>
                     </div>
                         <div class="modal-footer">
+                            <button data-toggle="modal" data-target="#createMember" type="button" class="btn btn-default">Create Member</button>
                             <button data-toggle="modal" data-target="#editModal" type="button" class="btn btn-default">Edit</button>
                             <button class="btn btn-default" ng-click = 'ctrl.deleteUser(ctrl.specificUser.user.id)'>Delete Member</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
@@ -70,7 +71,7 @@
 
 <!-- Create Member Form Modal -->
 
-<div id="#createMember" class="modal fade" role="dialog">
+<div id="createMember" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -89,6 +90,7 @@
                 </form>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-default" ng-click = 'ctrl.createUser()'>Create Member</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
             </div>
         </div>

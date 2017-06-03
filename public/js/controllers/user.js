@@ -88,6 +88,8 @@ this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
     //========================================
 
     this.getUsers = function(){
+        this.formdata = {};
+        this.userdata = {};
         console.log("getting users...");
         $http({
             method: 'GET',
@@ -137,7 +139,7 @@ this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
             data: this.editeventdata
         }).then(function(response) {
             console.log(response);
-            this.editformdata={};
+            this.editeventdata={};
             this.getEvents();
         }.bind(this));
     };

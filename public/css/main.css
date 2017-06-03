@@ -7,15 +7,15 @@ body {
 }
 
 #pic{
-    height: 400px;
-    width:  500px;
+    height: 300px;
+    width:  300px;
     display: inline-flex;
     background-color: purple;
 }
 
 /*show individual user and event */
 
-.list-group-item active {
+/*.list-group-item active {
     position: relative;
     display: block;
     padding: 10px 15px;
@@ -26,7 +26,7 @@ body {
     height: auto;
     width: auto;
     /*padding: 10px 20px, 30px, 40px;*/
-}
+}*/
 
 .ng-hide{
     /*display: block;*/
