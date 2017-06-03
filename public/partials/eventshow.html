@@ -1,30 +1,50 @@
-<div class="row">
     <!-- Show Events when link is clicked -->
-
     <div ng-repeat = "event in ctrl.events" class="col-xs-6 col-md-4">
-        <div class = "show bg-info pull-left ng-show" ng-click = 'ctrl.showEvent(event.id)' data-toggle="modal" data-target="#EditModal">
-            <h2>{{ event.title }}</h2><br>
+        <div class = "show" ng-click = 'ctrl.showEvent(event.id)' data-toggle="modal" data-target="#ShowEventModal">
+            <h2 class="text-info">{{ event.title }}</h2><br>
         </div>
     </div>
-    <div>
-        <p>{{ ctrl.specificEvent.event.title }}</p><br>
-        <p>{{ ctrl.specificEvent.event.price }}</p><br>
-        <p>{{ ctrl.specificEvent.event.date }}</p><br>
-        <p>{{ ctrl.specificEvent.event.location }}</p><br>
-        <p>{{ ctrl.specificEvent.event.user_id }}</p><br>
+
+    <!-- Show Event Information Modal -->
+    <div id="ShowEventModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"&times;></button>
+                    <h4 class="modal-title">Event Information</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li class="list-group-item active">{{ ctrl.specificEvent.event.title }}</li><br>
+                        <li class="list-group-item active">{{ ctrl.specificEvent.event.price }}</li><br>
+                        <li class="list-group-item active">{{ ctrl.specificEvent.event.date }}</p><br>
+                        <li class="list-group-item active">{{ ctrl.specificEvent.event.location }}</li><br>
+                        <li class="list-group-item active">{{ ctrl.specificEvent.event.user_id }}</li><br>
+                    </ul>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#CreateEventModal">Create Event</button>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#EditEventModal">Edit Event</button>
+                        <button class="btn btn-default" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.event.id)'>Delete Event</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <!-- Edit Event Form Modal-->
-    <div class="modal-hide" id="EditModal" role="dialog">
+    <div class="modal fade" id="EditEventModal" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal Content -->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="EditModal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Edit Event</h4>
                 </div>
+
+                <!-- Modal Body Edit Event Form -->
                 <div class="modal-body">
                     <form class="form" ng-submit="ctrl.editEvent()">
                         <input type="text" ng-model="ctrl.editeventdata.title" placeholder = "{{ctrl.specificEvent.event.title}}"/>
@@ -33,26 +53,26 @@
                         <input type="text" ng-model="ctrl.editeventdata.event. location" placeholder="location"/>
                         <input type="text" ng-model="ctrl.editeventdata.user_id" placeholder="user_id"/>
                     </form>
-                    <button class="delete-btn" ng-click = 'ctrl.deleteEvent(ctrl.specificEvent.event.id)'>Delete Event</button>
-                    <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Edit Event</button>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
-                    </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
+                    <button class="delete-btn" ng-click = 'ctrl.editEvent(specificEvent.id)'>Danger Edit Event</button>
+                </dul
             </div>
         </div>
+    </div>
 
         <!-- Create Event Form -->
-        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#CreateEventModal">Create Modal</button> -->
+
 
         <!-- Create Event Form Modal -->
-        <div id="CreateEventModal" class="modal-fade" role="dialog">
+        <div id="CreateEventModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <div class="modal-title">
-                            <h4>Create Event</h4>
+                            <h4>Create New Event</h4>
                         </div>
                     </div>
                     <div class="modal-body">
@@ -66,12 +86,9 @@
                         </form>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" ng-click = 'ctrl.createEvent()'>Create Event</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-group">
-
-        </div>
-</div>

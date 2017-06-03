@@ -3,14 +3,10 @@ var app = angular.module('bllapp', []);
 
 app.controller('mainController', ['$http', function($http) {
 
-this.url = 'https://bll-app-fe.herokuapp.com' || 'http://localhost:3000';
+this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
 
-    // if(window.location.origin == "http://localhost:8000") {
-    //   this.url = "http://localhost:3000";
-    // }
-    // else {
-    //   this.url = "https://bll-app-fe.herokuapp.com";
-    // }
+// this.url = 'https://bll-app-fe.herokuapp.com' || 'http://localhost:3000';
+
 
     this.message = "controller works";
 
@@ -154,9 +150,7 @@ this.url = 'https://bll-app-fe.herokuapp.com' || 'http://localhost:3000';
 
     this.editEvent = function () {
         var id = this.specificEvent.event.id;
-        console.log(this.specificEvent.event.id);
-        console.log("edit event...");
-        console.log(id);
+        console.log("edit event..." + id);
         $http({
             method: 'PUT',
             url: this.url + '/events/' + id,

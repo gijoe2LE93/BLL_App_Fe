@@ -15,15 +15,18 @@ body {
 
 /*show individual user and event */
 
-/*.show {
-    /*float: left !important;*/
+.list-group-item active {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
     border: 2px solid;
-    box-shadow: 10px 30px 5px #888888;
+    box-shadow: 10px 30px 5px #888888 !important;
     text-align: center;
     height: auto;
     width: auto;
-    padding: 10px 20px, 30px, 40px;
-}*/
+    /*padding: 10px 20px, 30px, 40px;*/
+}
 
 .ng-hide{
     /*display: block;*/
@@ -37,7 +40,7 @@ body {
 #editModal {
     margin-top: -500px !important;
 }
-modal {
+/*modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -62,4 +65,4 @@ modal {
 #signup-modal {
   overflow: auto;
   display: none;
-}
+}*/

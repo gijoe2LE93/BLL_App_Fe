@@ -1,34 +1,53 @@
-<div class="row" >
+
     <!-- Show Members when Member Link is clicked -->
     <div >
         <div ng-repeat = "user in ctrl.users" class="col-xs-6 col-md-4">
-            <div  class = "show bg-info pull-left ng-show"  ng-click = 'ctrl.showUser(user.id)' data-toggle="modal" data-target="#EditModal"  >
-                <h2>{{ user.name }} </h2><br>
+            <div class="show" ng-click = 'ctrl.showUser(user.id)' data-toggle="modal" data-target="#createModal"  >
+                <h2 class="text-info">{{ user.name }} </h2><br>
             </div>
         </div>
-        <section>
-            <section>
-                <div>
-                    <!-- <h1>User</h1> -->
-                    <h1>{{ctrl.specificUser.user.name}}</h1>
-                    <p>{{ctrl.specificUser.user.email}}</p>
-                    <p>{{ctrl.specificUser.user.phone}}</p>
-                    <p>{{ctrl.specificUser.user.office}}</p>
-                    <p>{{ctrl.specificUser.user.event_pos}}</p>
+
+                <!-- Show Member Information Modal -->
+        <div id="createModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"&times;></button>
+                        <h4 class="modal-title">Member Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <!-- <h1>User</h1> -->
+                                <h4>{{ctrl.specificUser.user.name}}</h4>
+                                <h3>{{ctrl.specificUser.user.email}}</h3>
+                                <h3>{{ctrl.specificUser.user.phone}}</h3>
+                                <h3>{{ctrl.specificUser.user.office}}</h3>
+                                <h3>{{ctrl.specificUser.user.event_pos}}</h3>
+                        </div>
+                    </div>
+                        <div class="modal-footer">
+                            <button data-toggle="modal" data-target="#editModal" type="button" class="btn btn-default">Edit</button>
+                            <button class="btn btn-default" ng-click = 'ctrl.deleteUser(ctrl.specificUser.user.id)'>Delete Member</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
+                        </div>
                 </div>
-            </section>
-        </section>
+            </div>
+        </div>
     </div>
-</div>
+
+<!-- End Show Member Information Modal -->
 <!-- Edit User Form modal-->
-<div class="modal-hide" id="EditModal" role="dialog">
+
+<div class="modal fade" id="editModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="EditModal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Member</h4>
             </div>
+
+            <!-- Modal Body Edit User Form -->
             <div class="modal-body">
                 <div class="form">
                     <form ng-submit="ctrl.editUser()" class="form">
@@ -37,42 +56,41 @@
                         <input type="text" ng-model="ctrl.edituserdata.phone" placeholder="{{ctrl.specificUser.user.phone}}"/>
                         <input type="text" ng-model="ctrl.edituserdata.office" placeholder="{{ctrl.specificUser.user.office}}"/>
                         <input type="text" ng-model="ctrl.edituserdata.event_pos" placeholder="{{ctrl.specificUser.user.event_pos}}"/>
-                        <input type="submit" class="submit" value="Edit Member">
                     </form><br>
                 </div>
                 <div class="modal-footer">
+                    <button class="btn btn-default" ng-click = 'ctrl.editUser()'>Edit Member</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- End Edit User Form modal-->
 
-<!-- Create User Form Modal -->
-<button type="button" class="btn btn-danger" data-toggle="modal" data-targer="#createModal"></button>
-<div id="#createModal" class="modal fade" role="dialog">
+<!-- Create Member Form Modal -->
+
+<div id="#createMember" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Member</h4>
             </div>
+            <!-- Create Member Form Body -->
             <div class="modal-body">
-
+                <form ng-submit="ctrl.createUser()" class="form">
+                    <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
+                    <input type="text" ng-model="ctrl.formdata.email" placeholder="email"/>
+                    <input type="text" ng-model="ctrl.formdata.phone" placeholder="phone"/>
+                    <input type="text" ng-model="ctrl.formdata.office" placeholder="office"/>
+                    <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
+                    <input type="submit" class="submit" value="create user">
+                </form>
             </div>
             <div class="modal-footer">
-
+                <button type="button" class="btn btn-default" data-dismiss="modal" name="button">Close</button>
             </div>
         </div>
     </div>
-</div>
-<h1>Create Member</h1>
-<div class="form">
-    <form ng-submit="ctrl.createUser()" class="form">
-        <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
-        <input type="text" ng-model="ctrl.formdata.email" placeholder="email"/>
-        <input type="text" ng-model="ctrl.formdata.phone" placeholder="phone"/>
-        <input type="text" ng-model="ctrl.formdata.office" placeholder="office"/>
-        <input type="text" ng-model="ctrl.formdata.event_pos" placeholder="Event Position"/>
-        <input type="submit" class="submit" value="create user">
-    </form>
 </div>
