@@ -1,10 +1,13 @@
     <!-- Show Events when link is clicked -->
     <div ng-repeat = "event in ctrl.events" class="col-xs-6 col-md-4">
-        <div class = "show" ng-click = 'ctrl.showEvent(event.id)' data-toggle="modal" data-target="#ShowEventModal">
-            <h2 class="text-info">{{ event.title }}</h2><br>
+        <div ng-click = 'ctrl.showEvent(event.id)' data-toggle="modal" data-target="#ShowEventModal">
+            <h3>
+                <li class="list-group-item ">
+                    {{ event.title }}
+                </li>
+            </h3>
         </div>
     </div>
-
     <!-- Show Event Information Modal -->
     <div id="ShowEventModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
