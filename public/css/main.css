@@ -3,30 +3,9 @@ body {
 }
 
 .img{
-    height: 50px;
+    height: 100px!important;
+    width: 100px!important;
 }
-
-#pic{
-    height: 300px;
-    width:  300px;
-    display: inline-flex;
-    background-color: purple;
-}
-
-/*show individual user and event */
-
-/*.list-group-item active {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    border: 2px solid;
-    box-shadow: 10px 30px 5px #888888 !important;
-    text-align: center;
-    height: auto;
-    width: auto;
-    /*padding: 10px 20px, 30px, 40px;*/
-}*/
 
 .ng-hide{
     /*display: block;*/
@@ -40,29 +19,3 @@ body {
 #editModal {
     margin-top: -500px !important;
 }
-/*modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  background-color: rgba(48, 48, 48, 0.7);
-  overflow: scroll;
-  font-family: 'Helvetica Neue';
-  color: #333;
-}
-
-.modal-input-box {
-  background-color: white;
-  max-width: 450px;
-  border-radius: 4px;
-  margin: 150px auto;
-  padding: 2%;
-  line-height: 120%;
-}
-
-#signup-modal {
-  overflow: auto;
-  display: none;
-}*/

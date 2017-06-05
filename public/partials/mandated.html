@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title></title>
+        <head>
+            <meta charset="utf-8">
+            <title>BLL App</title>
+
+        <!-- Test Scripts -->
+            <script     src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+              <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+              <script src="js/controllers/user.js" charset="utf-8"></script>
+              <script
+              src="https://code.jquery.com/jquery-3.2.1.min.js"
+              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous"></script>
+
+        <!-- End Test Scripts -->
+
+        </head>
     </head>
     <body>
+        <div ng-include="'partials/nav.html'">
+        </div>
+        <div class="container">
+            <div ng-include="'partials/carousel.html'">
+            </div>
+            <!-- Place large image -->
+            <!-- <div id="pic">
+                <img class='img-responsive' src="http://s3.amazonaws.com/ClubExpressClubFiles/669319/graphics/Founders_With_Shield.jpg" alt="">
+            </div> -->
+            <div class="row">
+                <div class="title">
+                    <h1>Beta Lambda Lambda Chapter</h1>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/partials/history.html">BLL Chapter History</a></li>
+                    <li ng-click = "ctrl.getUsers()"><a href="" >Members</a></li>
+                    <li ng-click = "ctrl.getEvents()"><a href="">Chapter Events</a></li>
+                    <li><a id="open-signup" href="/partials/mandated.html">Mandated Programs</a></li>
+                </ul>
+            </div>
         <h1>Internationally Mandated Programs</h1>
         <h2>Achievment Week</h2>
         <p>
