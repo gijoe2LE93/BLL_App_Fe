@@ -5,7 +5,7 @@ app.controller('mainController', ['$http', function($http) {
 
 // this.url = 'http://localhost:3000' || 'https://bll-app-fe.herokuapp.com';
 
-this.url = 'https://bll-app-fe.herokuapp.com' || 'http://localhost:3000';
+this.url = 'https://bll-app-be.herokuapp.com' || 'http://localhost:3000';
 
 
     this.message = "controller works";
